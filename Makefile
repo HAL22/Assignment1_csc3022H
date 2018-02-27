@@ -5,15 +5,15 @@ CC=g++
 
 CFLAGS=-c	-Wall
 
-all:	run
+all:	r
 
-hello:	driver.o	database.o
-	$(CC)	driver.o	database.o	-o	run
+r:	driver.o	database.o
+	$(CC)	driver.o	database.o	-o	r
 
 driver.o:	driver.cpp
 	$(CC)	$(CFLAGS)	driver.cpp
 
-database.o:	database.cpp
+database.o:	database.cpp	database.h
 	$(CC)	$(CFLAGS)	database.cpp
 
 
