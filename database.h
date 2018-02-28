@@ -16,14 +16,19 @@
 namespace FLTTHE004{
 
   extern std::vector<StudentRecord> StudentVector;
+  extern std::vector<StudentRecord> StudentVector2;
 
   void AddStudent(std::string name,std::string surname,std::string studentnum,std::string classrecord);
 
   void ReadDatabase();
-/**
+
   void SavetoDatabase();
 
-  void Grade(std::string studentnum);*/
+  std::string toString(StudentRecord s);
+
+  void DisplayData(std::string studentnum);
+
+  void Grade(std::string studentnum);
 
 }
 
