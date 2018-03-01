@@ -26,6 +26,8 @@ namespace FLTTHE004{
 
   std::string toString(StudentRecord s);
 
+  void convert(std::string& s);
+
   void DisplayData(std::string studentnum);
 
   void Grade(std::string studentnum);

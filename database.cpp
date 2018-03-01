@@ -11,6 +11,10 @@
 #include <cstdlib>
 #include <stdio.h> // for upper case
 #include <ctype.h> // for upeer case
+#include <sstream> // for grading
+#include <array>
+#include <stdlib.h>
+
 
 
 
@@ -22,9 +26,21 @@ namespace FLTTHE004{
   std::vector<StudentRecord> StudentVector2;
 
 
+  void convert(std::string& s){      // converts the student num to upper case
+
+    for(unsigned int i=0; i<s.length(); i++){
+      s[i] = toupper(s[i]);
+    }
+
+
+  }
+
   void AddStudent(std::string name,std::string surname,std::string studentnum,std::string classrecord){
 
     StudentRecord s;
+    int found=0;
+
+    convert(studentnum);
 
     s.Name=name;
     s.Surname=surname;
@@ -32,16 +48,21 @@ namespace FLTTHE004{
     s.ClassRecord=classrecord;
 
 
-    // for(unsigned int i=0;i<StudentVector2.size();i++){
-    //   if(StudentVector2.at(i).StudentNumber == s.StudentNumber){
-    //      cout << "Duplicate found,but already submitted to the database" << endl;
-    //      f=true;
-    //      break;
-    //   }
-    // }
+
+  //  cout << s.StudentNumber << endl;
+
+
+    for(unsigned int i=0;i<StudentVector2.size();i++){
+       if(StudentVector2.at(i).StudentNumber == s.StudentNumber){
+          cout << "Duplicate found,but already submitted to the database" << endl;
+          found=1;
+          break;
+    }
+     }
 
     //cout << found;
 
+    if(found==0){
     for(unsigned int i=0;i<StudentVector.size();i++){
       if(StudentVector.at(i).StudentNumber == s.StudentNumber){
          cout << "Duplicate found" << endl;
@@ -53,12 +74,12 @@ namespace FLTTHE004{
 
 
 
-     StudentVector.push_back(s);
+     StudentVector.push_back(s);}
 
 
 
 
-    cout << StudentVector.size() << endl ;
+    //cout << StudentVector.size() << endl ;
 
   }
 
@@ -121,6 +142,8 @@ namespace FLTTHE004{
 
     bool found=false;
 
+    bool found2=false;
+
     if(StudentVector.size()>0){
 
 
@@ -129,6 +152,7 @@ namespace FLTTHE004{
         if(StudentVector.at(i).StudentNumber == studentnum){
 
           found=true;
+          found2=true;
           cout << toString(StudentVector.at(i)) << endl;
 
         }
@@ -145,7 +169,7 @@ namespace FLTTHE004{
 
       for(unsigned int i=0;i<StudentVector2.size();i++){
         if(StudentVector2.at(i).StudentNumber == studentnum){
-
+          found2=true;
           cout << toString(StudentVector2.at(i)) << endl;
 
         }
@@ -156,7 +180,9 @@ namespace FLTTHE004{
     }
 
 
-
+ if(found2==false){
+   cout << "Student number not in the record" << endl;
+ }
 
 
 
@@ -164,7 +190,92 @@ namespace FLTTHE004{
   }
 
   void Grade(std::string studentnum){
-    
+
+
+  convert(studentnum);
+
+    bool found=false;
+    bool found2=false;
+    std::string grade;
+    unsigned int sum=0;
+
+    if(StudentVector.size()>0){
+
+
+
+      for(unsigned int i=0;i<StudentVector.size();i++){
+        if(StudentVector.at(i).StudentNumber == studentnum){
+
+          found=true;
+          found2=true;
+          grade=StudentVector.at(i).ClassRecord;
+
+
+        }
+
+      }
+
+
+
+    }else{
+      found=false;
+    }
+
+    if(found==false){
+
+      for(unsigned int i=0;i<StudentVector2.size();i++){
+        if(StudentVector2.at(i).StudentNumber == studentnum){
+
+          found2 =true;
+
+          grade=StudentVector.at(i).ClassRecord;
+
+        }
+
+      }
+
+
+    }
+
+
+    // calcualting the Grade
+
+    if(found2==true){
+
+  unsigned  int arr[grade.length()];
+
+
+    unsigned int i=0;
+    stringstream ssin(grade);
+
+  //  cout << grade << endl;
+
+    while(ssin.good() && i<grade.length()){
+
+
+      ssin >> arr[i];
+      sum=sum+arr[i];
+      i++;
+
+
+    }
+
+
+
+   float average = sum/i;
+
+
+
+  cout << "The average is  "<< average<< endl;}
+
+  if(found2==false){
+    cout << "The student number is not in the database" << endl;
+  }
+
+
+
+
+
   }
 
 
