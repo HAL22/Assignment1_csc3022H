@@ -41,14 +41,17 @@ int main(){
 
 
 
-  displaymenu();
+  //displaymenu();
 
-  cout << "Pick an option,press the number you want or q(to quit)" << endl;
-  cin >> ans;
+  //cout << "Pick an option,press the number you want or q(to quit)" << endl;
+  //cin >> ans;
 
   for(;;){
 
+    displaymenu();
 
+    cout << "Pick an option,press the number you want or q(to quit)" << endl;
+    cin >> ans;
 
     if(ans=="1"){
 
@@ -67,10 +70,9 @@ int main(){
 
       cout << "Function AddStudent() called" << endl;
 
-      displaymenu();
 
-      cout << "Pick an option,press the number you want or q(to quit)" << endl;
-      cin >> ans;
+
+
 
     }
 
@@ -79,10 +81,9 @@ int main(){
 
       cout << "Function ReadDatabase() called" << endl;
 
-      displaymenu();
 
-      cout << "Pick an option,press the number you want or q(to quit)" << endl;
-      cin >> ans;
+
+
     }
 
     if(ans=="3"){
@@ -91,10 +92,7 @@ int main(){
 
       cout << "Function SavetoDatabase() called" << endl;
 
-      displaymenu();
 
-      cout << "Pick an option,press the number you want or q(to quit)" << endl;
-      cin >> ans;
 
     }
 
@@ -106,10 +104,7 @@ int main(){
 
       cout << "Function DisplayData() called" << endl;
 
-      displaymenu();
 
-      cout << "Pick an option,press the number you want or q(to quit)" << endl;
-      cin >> ans;
     }
 
 
@@ -121,10 +116,7 @@ int main(){
 
       cout << "Grade() called" << endl;
 
-      displaymenu();
 
-      cout << "Pick an option,press the number you want or q(to quit)" << endl;
-      cin >> ans;
     }
 
     if(ans=="q"){
