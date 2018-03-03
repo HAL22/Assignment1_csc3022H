@@ -13,7 +13,7 @@ r:	driver.o	database.o
 driver.o:	driver.cpp
 	$(CC)	$(CFLAGS)	driver.cpp
 
-database.o:	database.cpp	database.h
+database.o:	database.cpp	database.h	Struct.h
 	$(CC)	$(CFLAGS)	database.cpp
 
 

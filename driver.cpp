@@ -39,30 +39,26 @@ int main(){
   string classrecord;
 
 
+  displaymenu();
 
+  cout << "Pick an option,press the number you want or q(to quit)" << endl;
+  getline(cin,ans);
 
-  //displaymenu();
-
-  //cout << "Pick an option,press the number you want or q(to quit)" << endl;
-  //cin >> ans;
 
   for(;;){
 
-    displaymenu();
 
-    cout << "Pick an option,press the number you want or q(to quit)" << endl;
-    cin >> ans;
 
     if(ans=="1"){
 
       cout << "Enter name" << endl;
-      cin >> name;
+      getline(cin,name);
       cout << "Enter surname" << endl;
-      cin >> surname;
+      getline(cin,surname);
       cout << "Enter studentnum" << endl;
-      cin >> studentnum;
+      getline(cin,studentnum);
       cout << "Enter classrecord" << endl;
-      cin >> classrecord;
+      getline(cin,classrecord);
 
       AddStudent( name,surname,studentnum,classrecord);
 
@@ -76,7 +72,7 @@ int main(){
 
     }
 
-    if(ans=="2"){
+  else  if(ans=="2"){
       ReadDatabase();
 
       cout << "Function ReadDatabase() called" << endl;
@@ -86,7 +82,7 @@ int main(){
 
     }
 
-    if(ans=="3"){
+  else  if(ans=="3"){
 
       SavetoDatabase();
 
@@ -96,7 +92,7 @@ int main(){
 
     }
 
-    if(ans=="4"){
+  else  if(ans=="4"){
       cout << "Enter Student Number" << endl;
       cin >> studentnum;
 
@@ -108,7 +104,7 @@ int main(){
     }
 
 
-    if(ans=="5"){
+  else  if(ans=="5"){
       cout << "Enter Student Number" << endl;
       cin >> studentnum;
 
@@ -119,14 +115,19 @@ int main(){
 
     }
 
-    if(ans=="q"){
+  else  if(ans=="q"){
       cout << "exiting program" << endl;
       break;
     }
 
+    else{cout << "Wrong input*********" << endl;}
 
 
 
+    displaymenu();
+
+    cout << "Pick an option,press the number you want or q(to quit)" << endl;
+    getline(cin,ans);
 
 
 

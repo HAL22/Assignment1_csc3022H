@@ -49,7 +49,7 @@ namespace FLTTHE004{
 
 
 
-  //  cout << s.StudentNumber << endl;
+    //cout <<"Studen RECORD     "+s.ClassRecord << endl;
 
 
     for(unsigned int i=0;i<StudentVector2.size();i++){
@@ -118,8 +118,21 @@ namespace FLTTHE004{
 
   void SavetoDatabase(){
 
+
+
+    copy(StudentVector.begin(),StudentVector.end(),back_inserter(StudentVector2));
+    StudentVector.clear();
+
+
+
+
+
+    /**
+
     StudentVector.swap(StudentVector2);
     StudentVector.clear();
+
+    **/
 
     ofstream myfile;
     myfile.open("Database.txt",fstream::app);
@@ -139,6 +152,8 @@ namespace FLTTHE004{
   }
 
   void DisplayData(std::string studentnum){
+
+    convert(studentnum);
 
     bool found=false;
 
@@ -192,7 +207,9 @@ namespace FLTTHE004{
   void Grade(std::string studentnum){
 
 
-  convert(studentnum);
+
+
+    convert(studentnum);
 
     bool found=false;
     bool found2=false;
@@ -228,7 +245,7 @@ namespace FLTTHE004{
 
           found2 =true;
 
-          grade=StudentVector.at(i).ClassRecord;
+          grade=StudentVector2.at(i).ClassRecord;
 
         }
 
@@ -236,6 +253,7 @@ namespace FLTTHE004{
 
 
     }
+
 
 
     // calcualting the Grade
